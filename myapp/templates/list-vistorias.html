@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Vistorias{% endblock %}
+
+{% block content %} 
+ 
+<div class="container">
+    <div class="cards">
+        {% for vistoria in vistorias %}  
+        <div class="card-item h-100"> 
+
+			{% for el in vistoria.vistoria_images.all %}
+
+            {% if forloop.first %}
+            <img src="{{el.image.url}}" class="card-image"  width="100%" height="320" alt="{{el.id}}"> 
+            {% endif %}  
+            
+            {% endfor %}   
+            <div class="card-body p-3">
+                <p>Codígo: {{vistoria.codigo}}</p> 
+                <p>Valor: {{vistoria.preco}}</p>   
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="badge bg-success">Tipo: {{vistoria.tipo_item}}</div> 
+                    <a class="btn btn-primary" href="{% url 'registro-create' vistoria.id  %}">Vistoria</a>
+                </div>
+            </div>  
+        </div> 
+        {% endfor %} 
+    </div>
+</div>
+{% endblock %}
