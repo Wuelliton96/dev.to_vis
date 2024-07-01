@@ -3,7 +3,7 @@ name: Django Tests and Linting
 on:
   push:
     branches:
-      - master
+      - master  # Substitua 'master' pelo nome da sua branch principal
 
 jobs:
   test:
