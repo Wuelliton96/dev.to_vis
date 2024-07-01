@@ -89,7 +89,4 @@ def reports(request):
     if get_dt_inicio and get_dt_fim:
         vistorias = vistorias.filter(reg_vistoria__create_at__range=[get_dt_inicio, get_dt_fim])
 
-
-
-
     return render(request, 'reports.html', {'vistorias': vistorias})
