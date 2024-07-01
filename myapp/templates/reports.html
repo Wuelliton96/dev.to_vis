@@ -38,10 +38,10 @@
         <div class="col-auto">
             <form action="{% url 'reports' %}">
                 <label>Status da Vistoria</label>
-                <select name="tipo_item" class="form-select" onchange="this.form.submit()">
+                <select name="esta_vistoriado" class="form-select" onchange="this.form.submit()">
                     <option></option> 
-                    <option value="True" {% if request.GET.tipo_item == 'True' %}selected{% endif %}>VISTORIADO</option>
-                    <option value="False" {% if request.GET.tipo_item == 'False' %}selected{% endif %}>NÃO VISTORIADO</option> 
+                    <option value="True" {% if request.GET.esta_vistoriado == 'True' %}selected{% endif %}>VISTORIADO</option>
+                    <option value="False" {% if request.GET.esta_vistoriado == 'False' %}selected{% endif %}>NÃO VISTORIADO</option> 
                 </select>
             </form>
         </div>
@@ -86,16 +86,16 @@
             <tr>
                 <td scope="row">{{vistoria.id}}</td>
 
-                <td scope="row">{% for registro in vistoria.reg_registro.all %}{{registro.dt_inicio|date:"d/m/Y"}}{% endfor %}</td>
-                <td scope="row">{% for registro in vistoria.reg_registro.all %}{{registro.dt_fim|date:"d/m/Y"}}{% endfor %}</td>
-                <td scope="row">{% for registro in vistoria.reg_registro.all %}{{registro.inspetor}}{% endfor %}</td>
+                <td scope="row">{% for registro in vistoria.reg_vistoria.all %}{{registro.dt_inicio|date:"d/m/Y"}}{% endfor %}</td>
+                <td scope="row">{% for registro in vistoria.reg_vistoria.all %}{{registro.dt_fim|date:"d/m/Y"}}{% endfor %}</td>
+                <td scope="row">{% for registro in vistoria.reg_vistoria.all %}{{registro.inspetor}}{% endfor %}</td>
 
                 <td scope="row">{{vistoria.codigo}}</td>
                 <td scope="row">{{vistoria.tipo_item}}</td>
                 <td scope="row">R$ {{vistoria.preco}}</td>
 
                 <td scope="row">
-                    {% if vistoria.tipo_item == True %}
+                    {% if vistoria.esta_vistoriado == True %}
                     <i class="fas fa-check-circle fa-2x link-success"></i>
                     {% else %}
                     <i class="fas fa-minus-circle fa-2x link-danger"></i>

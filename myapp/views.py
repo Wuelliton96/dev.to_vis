@@ -41,13 +41,12 @@ def form_vistoria(request):
         form = VistoriaForm(request.POST, request.FILES)
         if form.is_valid():
             vistoria = form.save()
-            files = request.FILES.getlist('Vistoria') ## pega todas as imagens
+            files = request.FILES.getlist('vistoria') ## pega todas as imagens
             if files:
                 for f in files:
                     VistoriaImage.objects.create( # cria instance para imagens
                         vistoria=vistoria, 
-                        image=f
-                    )
+                        image=f)
             return redirect('lista-vistorias')  
     return render(request, 'form-vistoria.html', {'form': form})
 

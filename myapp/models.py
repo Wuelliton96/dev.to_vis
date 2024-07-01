@@ -30,7 +30,7 @@ class TipoDeVistoria(models.TextChoices):
 class Vistoria(models.Model):
     codigo = models.CharField(max_length=100)
     tipo_item = models.CharField(max_length=100, choices=TipoDeVistoria.choices)
-    cep = models.CharField(max_length=8, null=True,  default='00000000')
+    cep = models.CharField(max_length=8, null=True,  default='00000-000')
     rua = models.CharField(max_length=255, blank=True)
     bairro = models.CharField(max_length=255, blank=True)
     cidade = models.CharField(max_length=255, blank=True)

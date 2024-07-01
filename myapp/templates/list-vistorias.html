@@ -10,7 +10,7 @@
         <div class="card-item h-100"> 
 
 			{% for el in vistoria.vistoria_images.all %}
-
+            
             {% if forloop.first %}
             <img src="{{el.image.url}}" class="card-image"  width="100%" height="320" alt="{{el.id}}"> 
             {% endif %}  
@@ -21,7 +21,7 @@
                 <p>Valor: {{vistoria.preco}}</p>   
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="badge bg-success">Tipo: {{vistoria.tipo_item}}</div> 
-                    <a class="btn btn-primary" href="{% url 'registro-create' vistoria.id  %}">Vistoria</a>
+                    <a class="btn btn-primary" href="{% url 'form-registra-vistoria' vistoria.id  %}">Vistoria</a>
                 </div>
             </div>  
         </div> 

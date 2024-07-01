@@ -10,6 +10,5 @@ urlpatterns = [
     path('form/registra-vistoria/<int:id>/', views.form_registra_vistoria, name='form-registra-vistoria'),
     path('reports/', views.reports, name='reports'),
     path('login/', views.login_view, name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]

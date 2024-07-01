@@ -34,7 +34,7 @@
 
     </div> 
 
-        <form class="col-md-4" action="{% url 'registro-create' registro.id %}" method="post">
+        <form class="col-md-4" action="{% url 'form-registra-vistoria' registro.id %}" method="post">
             {% csrf_token %}
             <h3>Formulário de Registro Vistoria Realizada</h3>
             {% for field in form %}
